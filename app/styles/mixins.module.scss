@@ -1,0 +1,89 @@
+/* MIXINS */
+@mixin media-min($query) {
+  @media screen  and (min-width: #{$query}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (min-width: 480px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet-lg {
+  @media screen and (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin desktop-sm {
+  @media screen and (max-width: 1020px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media screen and (max-width: 1220px) {
+    @content;
+  }
+}
+
+@mixin desktop-lg {
+  @media screen and (max-width: 1360px) {
+    @content;
+  }
+}
+
+%text-medium {
+  font-size: 36px;
+  line-height: 1;
+  color: var(--text-blue);
+  font-family: var(--font-modern);
+  font-weight: 400;
+
+  @include desktop-lg {
+    font-size: 34px;
+  }
+  @include desktop {
+    font-size: 30px;
+  }
+
+  @include desktop-sm {
+    font-size: 26px;
+  }
+  @include tablet-lg {
+    font-size: 24px;
+  }
+}
+
+%text-small {
+  font-size: 32px;
+  line-height: 1;
+  color: var(--text-blue);
+  font-family: var(--font-modern);
+  font-weight: 400;
+  @include desktop-lg {
+    font-size: 30px;
+  }
+  @include desktop {
+    font-size: 28px;
+  }
+  @include desktop-sm {
+    font-size: 24px;
+  }
+
+  @include tablet-lg {
+    font-size: 20px;
+  }
+}
+
+%flex-column {
+  display: flex;
+  flex-direction: column;
+}

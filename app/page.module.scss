@@ -1,0 +1,213 @@
+@import "./styles/mixins.module.scss";
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  justify-content: space-between;
+  min-height: calc(100vh - 70px);
+  padding-top: 36px;
+  background-color: var(--bg-blue);
+
+  @include desktop-lg {
+    min-height: calc(100vh - 66px);
+  }
+  @include desktop {
+    min-height: calc(100vh - 60px);
+    padding-top: 30px;
+  }
+
+  @include desktop-sm {
+    padding-top: 26px;
+    min-height: calc(100vh - 52px);
+  }
+  @include tablet-lg {
+    padding-top: 24px;
+    min-height: calc(100vh - 48px);
+  }
+}
+
+.section {
+  @extend %flex-column;
+  width: 100%;
+  max-width: 100%;
+
+  .head {
+    background-color: var(--text-blue);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+    @include desktop {
+      height: auto;
+    }
+
+    .title {
+      @extend %text-medium;
+      padding: 0 16px;
+      height: 100%;
+      background-color: var(--bg-blue);
+    }
+  }
+  .wrapper {
+    display: grid;
+    grid-template-rows: auto 80px;
+    border: 4px solid var(--text-blue);
+    border-top: none;
+    padding: 0 4px 4px 4px;
+    height: 100%;
+    width: 100%;
+    @include desktop {
+      grid-template-rows: auto 60px;
+    }
+  }
+  .content {
+    border-left: 2px solid var(--text-blue);
+    border-right: 2px solid var(--text-blue);
+  }
+  .bootom {
+    @extend %flex-column;
+    justify-content: center;
+    padding: 0 8px;
+    border-left: 2px solid var(--text-blue);
+    border-right: 2px solid var(--text-blue);
+    border-bottom: 2px solid var(--text-blue);
+    border-top: 4px solid var(--text-blue);
+
+    .text {
+      @extend %text-small;
+    }
+  }
+}
+
+// =========CARD TREE================================
+
+.treeWrap {
+  padding: 32px 22px;
+
+  @include desktop-lg {
+    padding: 30px 22px;
+  }
+
+  @include desktop {
+    padding: 28px 22px;
+  }
+
+  @include desktop-sm {
+    padding: 24px 20px;
+  }
+  @include tablet-lg {
+    padding: 22px 18px;
+  }
+}
+
+.tree {
+  @extend %flex-column;
+  // gap: ;
+
+  %plug {
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 6px;
+    left: -5px;
+    background-color: var(--bg-blue);
+  }
+
+  .treeItem {
+    @extend %text-small;
+    position: relative;
+    padding: 4px 0 4px 25px;
+    border-left: 4px solid var(--text-blue);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      width: 24px;
+      border-bottom: 4px solid var(--text-blue);
+    }
+
+    &:first-of-type {
+      &::after {
+        @extend %plug;
+        top: -2px;
+        @include desktop-lg {
+          top: -3px;
+        }
+        @include desktop {
+          top: -4px;
+        }
+
+        @include desktop-sm {
+          top: -6px;
+        }
+        @include tablet-lg {
+          top: -8px;
+        }
+      }
+    }
+    &:last-of-type {
+      &::after {
+        @extend %plug;
+        bottom: -2px;
+        @include desktop-lg {
+          bottom: -3px;
+        }
+        @include desktop {
+          bottom: -4px;
+        }
+
+        @include desktop-sm {
+          bottom: -6px;
+        }
+        @include tablet-lg {
+          bottom: -8px;
+        }
+      }
+    }
+  }
+}
+
+// =========CARD FILE================================
+.cardBox {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 100%;
+
+  .card {
+    height: 100%;
+    border-right: 4px solid var(--text-blue);
+    padding: 0 4px 0 8px;
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  .cardTitle {
+    @extend %text-small;
+    color: var(--text-yellow);
+    text-align: center;
+  }
+
+  .cardList {
+    @extend %flex-column;
+  }
+  .cardItem {
+    @extend %text-small;
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+    flex-wrap: nowrap;
+    color: var(--text-blue);
+    transition: all 250ms ease-in-out;
+
+    &:hover {
+      color: var(--bg-blue);
+      background-color: var(--text-blue);
+    }
+  }
+}

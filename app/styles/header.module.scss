@@ -1,0 +1,92 @@
+@import "./mixins.module.scss";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 36px;
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  background-color: var(--bg-green);
+  position: fixed;
+  z-index: 1000;
+  @include desktop {
+    height: auto;
+  }
+}
+.headerNav,
+.headerList {
+  display: flex;
+  position: relative;
+}
+.headerNav {
+  padding: 0 32px;
+}
+
+.menuItem {
+  display: block;
+  padding: 0 32px;
+  @extend %text-medium;
+  color: var(--black);
+  border: none;
+  font-family: var(--font-modern);
+  height: 36px;
+  @include desktop {
+    height: auto;
+  }
+
+  &::first-letter {
+    @extend %text-small;
+    text-transform: uppercase;
+    color: var(--text-yellow);
+    transition: all 250ms ease-in-out;
+  }
+
+  &:hover,
+  &.active {
+    color: var(--white);
+    background-color: var(--black);
+  }
+}
+
+.dropMenu {
+  position: absolute;
+  top: 31px;
+  left: 0;
+  width: 512px;
+  max-width: 100%;
+  background-color: var(--bg-green);
+  z-index: 100;
+  padding: 16px 8px;
+
+  .dropList {
+    padding: 8px 4px;
+    cursor: pointer;
+    border: 4px solid var(--black);
+  }
+  .dropItem {
+    @extend %text-small;
+    width: 100%;
+    padding: 0 8px;
+    color: var(--black);
+    display: flex;
+    justify-content: space-between;
+    transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
+    span {
+      display: inline-block;
+      &:first-of-type::first-letter {
+        @extend %text-small;
+        text-transform: uppercase;
+        color: var(--text-yellow);
+        transition: all 250ms ease-in-out;
+      }
+    }
+
+    &:hover,
+    &.active {
+      color: var(--white);
+      background-color: var(--black);
+    }
+  }
+}

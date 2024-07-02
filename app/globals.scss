@@ -1,0 +1,92 @@
+/* VARIABLES */
+:root {
+  --max-width: 1366px;
+  --border-radius: 12px;
+  --font-mono: "ModernDOS8x16", monospace;
+
+  --bg-blue: #0000aa;
+  --bg-green: #00aaaa;
+  --black: #000000;
+  --white: #ffffff;
+  --text-blue: #55ffff;
+  --text-gray: #aaaaaa;
+  --text-yellow: #ffff55;
+
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* RESET STYLES*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ol,
+ul {
+  margin: 0;
+  padding-left: 0;
+
+  li {
+    list-style: none;
+  }
+}
+
+address {
+  font-style: normal;
+}
+
+img {
+  display: block;
+}
+
+a {
+  color: currentColor;
+}
+
+:active,
+:hover,
+:focus {
+  outline: 0;
+  outline-offset: 0;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--bg-blue);
+  color: var(--text-blue);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 100%;
+  width: var(--max-width);
+  margin: 0 auto;
+  /* padding: 0 1rem; */
+}

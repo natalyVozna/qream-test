@@ -18,7 +18,6 @@ export const useClickOutside = ({
         !ref.current.contains(e.target as Node) &&
         e.target !== btnRef.current
       ) {
-        console.log("click outside");
         callback();
       }
     };

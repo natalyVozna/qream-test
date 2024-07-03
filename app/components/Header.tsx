@@ -16,13 +16,10 @@ const Header = () => {
   const btnRef = useRef<HTMLButtonElement>(null);
 
   const toggleMenu = () => {
-    console.log("toggleMenu");
     setShowMenu(!showMenu);
   };
 
   const closeMenu = () => {
-    console.log("closeMenu");
-
     setShowMenu(false);
   };
 
